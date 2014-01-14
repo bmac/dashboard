@@ -1,9 +1,12 @@
 import pickle
 import sqlite3
 
+from config import DB_PATH
+
+print DB_PATH
 
 def execute(query):
-        dbPath = 'db'
+        dbPath = DB_PATH
         connection = sqlite3.connect(dbPath)
         cursorobj = connection.cursor()
         try:

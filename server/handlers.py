@@ -7,6 +7,7 @@ from api.user import validate_api_key
 
 class DBHandler(tornado.web.RequestHandler):
     def prepare(self):
+        #action = self.request.path.split('/')[-1]
         api_key = self.get_argument('user', '')
         if not api_key:
             # Throw error.
@@ -17,11 +18,15 @@ class DBHandler(tornado.web.RequestHandler):
             pass
 
 
-class GraphHandler(DBHandler):
-    def get(self):
-        user = self.get_argument('user', '')
-        self.write(json.dumps("Graph"))
+class UserHandler(DBHandler):
+    def get(self, user):
+        pass
 
+class GraphHandler(DBHandler):
+    def get(self, user):
+        print user
+        self.write(json.dumps("Graph"))
+    def post(self):
 
 class GitHubHandler(DBHandler):
     def get(self):

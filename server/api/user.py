@@ -24,9 +24,13 @@ def generate_api_key(user_id):
 
 
 def validate_api_key(key):
-    user = execute("select user_id from users where api_key=%i" \
-                       % key)[0][0]
-    return user
+    user = execute("select id from users where api_key='%s';" \
+                       % key)
+    if user:
+        return user
+    else:
+        # Probs raise an error here.
+        return None
 
 
 def user(user_id=None, name=None):
