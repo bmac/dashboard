@@ -1,0 +1,16 @@
+
+create table users(id integer primary key not null,
+       name varchar(20) unique not null);
+create table graphs(id int primary key,
+       created datetime default current_timestamp,
+       name varchar(20),
+       user_id references users(name) not null,
+       color blob);
+
+insert into users('name') values('ingrid');
+insert into users('name') values('bmac');
+insert into graphs('name', 'user_id') values ('foo', 1);
+insert into graphs('name', 'user_id') values ('bar', 2);
+
+drop table users;
+drop table graphs;
