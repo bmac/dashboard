@@ -10,17 +10,18 @@ from requests import post, get
 
 import config
 
-def google_date(timestamp):
-    return datetime.datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d')
-
-def timestamp(year, month, day):
-    d = date(year, month, day)
-    return time.mktime(d.timetuple())
-
 class GraphHandler(tornado.web.RequestHandler):
-    def get(self):
+    def prepare(self):
+        args = ['user', 'start', 'end']
         user = self.get_argument('user', '')
+
+    def get(self):
+
+
         self.write(json.dumps("Graph"))
+
+    def post(self):
+        pass
 
 class GitHubHandler(tornado.web.RequestHandler):
     def get(self):
@@ -34,7 +35,7 @@ application = tornado.web.Application([
     (r"/graph", GraphHandler),
     (r"/github", GitHubHandler),
     (r"/raw", RawHandler),
-    (r"/(.*)", tornado.web.StaticFileHandler, {'path' : '../'}),
+    (r"/(.*)", tornado.web.StaticFileHandler, {'path' : '../client/'}),
 ])
 
 if __name__ == "__main__":
