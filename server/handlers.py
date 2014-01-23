@@ -27,6 +27,7 @@ class GraphHandler(DBHandler):
         print user
         self.write(json.dumps("Graph"))
     def post(self):
+        pass
 
 class GitHubHandler(DBHandler):
     def get(self):
