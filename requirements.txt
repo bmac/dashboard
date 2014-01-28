@@ -1,0 +1,16 @@
+PyJWT==0.1.5
+google-api-python-client==1.1
+httplib2==0.8
+instapaperlib==0.4.0
+oauth2==1.5.211
+pep8==1.4
+ply==3.4
+pyflakes==0.5.0
+python-gflags==2.0
+python-json-logger==0.0.1
+python-twitter==1.0
+requests==1.2.0
+simplejson==3.3.0
+tornado==2.4.1
+wsgiref==0.1.2
+yolk==0.4.3

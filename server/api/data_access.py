@@ -35,7 +35,8 @@ def set_up():
                         "created datetime default current_timestamp," + \
                         "name varchar(20), " + \
                         "user_id references users(id) not null, " + \
-                        "color blob);")
+                        "color blob, " + \
+                        "lambda blob);")
         execute("create table events(id int primary key, " + \
                         "graph_id references graphs(id) not null, " + \
                         "date datetime not null, " + \
@@ -47,8 +48,9 @@ def init_data():
         execute("insert into users('name') values('ingrid');")
         execute("insert into users('name') values('bmac');")
         execute("insert into graphs('name', 'user_id') values ('foo', 1);")
-        execute("insert into graphs('name', 'user_id') values ('bar', 2);")
+        execute("insert into graphs('name', 'user_id') values ('exercise', 2);")
         execute("insert into events('graph_id', 'date') values (1, '2007-01-01 10:00:00');")
+        execute("insert into events('graph_id', 'date') values (2, '2007-01-01 10:00:00');")
 
 
 def tear_down():

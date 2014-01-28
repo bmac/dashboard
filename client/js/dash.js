@@ -32,9 +32,9 @@ require([], function() {
         svg.append("text")
             .attr("transform", "translate(-6," + cellSize * 3.5 + ")rotate(-90)")
             .style("text-anchor", "middle")
-            .text(function(d) { return d; })
+            .text(function(d) { return d; });
 
-            var YEAR = 31449600000;
+        var YEAR = 31449600000;
         var DAY = 86400000;
         var today = new Date();
         var year_ago = new Date(today.getTime() - YEAR);
@@ -47,11 +47,15 @@ require([], function() {
         var num_years = (e_year - s_year) + 1;
         var padding = (parseInt(day(start))) * num_years;
 
+        console.log(start);
+
         var multi_week = function (d){
             var date = new Date(d);
             var diffDays = Math.round(Math.abs((start.getTime() - date.getTime())/DAY));
             diffDays += padding;
             var week = Math.floor((diffDays)/7);
+            console.log(date);
+            console.log(diffDays);
             return week;
         };
 

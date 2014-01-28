@@ -3,6 +3,7 @@ import tornado.web
 import json
 
 from api.user import validate_api_key
+from api import graph
 
 
 class DBHandler(tornado.web.RequestHandler):
@@ -18,21 +19,23 @@ class DBHandler(tornado.web.RequestHandler):
             pass
 
 
-class UserHandler(DBHandler):
+class ProfileHandler(DBHandler):
     def get(self, user):
-        pass
+        self.write(json.dumps("USER ACTION"))
+
+
+class UserHandler(DBHandler):
+    def get(self, user, action):
+        self.write(json.dumps(graph.read(user, action)))
 
 class GraphHandler(DBHandler):
     def get(self, user):
         print user
         self.write(json.dumps("Graph"))
     def post(self):
+        pass
 
 class GitHubHandler(DBHandler):
     def get(self):
         self.write(json.dumps("Github"))
 
-
-class RawHandler(DBHandler):
-    def get(self):
-        self.write(json.dumps("Raw"))

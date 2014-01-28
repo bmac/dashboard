@@ -1,10 +1,9 @@
-from handlers import GraphHandler, GitHubHandler, RawHandler, UserHandler
+from handlers import GitHubHandler, UserHandler, ProfileHandler
 import tornado
 
 urls = [
-    (r"/([^/]+)/graph", GraphHandler),
-    (r"/github", GitHubHandler),
-    (r"/raw", RawHandler),
-    (r"/([^/]+)/", UserHandler),
+    (r"/([^/]+)[\/]?", ProfileHandler),
+    (r"/([^/]+)/github[\/]?", GitHubHandler),
+    (r"/([^/]+)/([^/]+)[\/]?", UserHandler),
     (r"/(.*)", tornado.web.StaticFileHandler, {'path': '../client/'}),
 ]
