@@ -3,28 +3,49 @@ import sqlite3
 
 from config import DB_PATH
 
-print DB_PATH
-
 def execute(query):
-        dbPath = DB_PATH
-        connection = sqlite3.connect(dbPath)
-        cursorobj = connection.cursor()
-        try:
-                cursorobj.execute(query)
-                result = cursorobj.fetchall()
-                connection.commit()
-        except Exception:
-                raise
-        connection.close()
-        return result
+    dbPath = DB_PATH
+    connection = sqlite3.connect(dbPath)
+    cursorobj = connection.cursor()
+    try:
+        cursorobj.execute(query)
+        result = cursorobj.fetchall()
+        connection.commit()
+    except Exception:
+        raise
+    connection.close()
+    return result
+
+def format_list(list, keys):
+    cleaned = []
+    for i in range(len(list)):
+        d = {}
+        for k in keys:
+            d[k] = list[i]
+        list.append(d)
+
+
+def format(list, keys=None):
+    pass
+
+def graph(id=None, user_id=None, name=None):
+    if id:
+        q = 'id=' + str(id)
+    elif user_id and name:
+        q = 'user_id=' + str(user_id) + "and name='" + name
+    else:
+        # Raise error.
+        pass
+    results = query('graphs', query=q)
+    graph = format_list(results, ['id', 'created', 'name', 'user_id', 'color'])
 
 
 def query(table, query=None, columns="*"):
-        q = "select %s from %s" % (columns, table)
-        if query:
-                q += " where %s" % query
-        q += ";"
-        return execute(q)
+    q = "select %s from %s" % (columns, table)
+    if query:
+        q += " where %s" % query
+    q += ";"
+    return execute(q)
 
 
 def set_up():
@@ -54,15 +75,15 @@ def init_data():
 
 
 def tear_down():
-        try:
-                execute("drop table users;")
-        except:
-                pass
-        try:
-                execute("drop table graphs;")
-        except:
-                pass
-        try:
-                execute("drop table events;")
-        except:
-                pass
+    try:
+        execute("drop table users;")
+    except:
+        pass
+    try:
+        execute("drop table graphs;")
+    except:
+        pass
+    try:
+        execute("drop table events;")
+    except:
+        pass
