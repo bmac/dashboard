@@ -20,17 +20,25 @@ def read(user, name):
         # User has no graph of that name
         pass
 
-    graph_id = graph[3]
+    graph_id = graph[0]
 
     try:
         events = execute("select * from events where graph_id=" + str(graph_id) + ";")
     except:
         pass
-    dict = {}
-    dict['start_date'] = events[0][1]
-    dict['events'] = events
 
-    return events
+    # Format events
+    cleaned_events = {}
+    for e in events:
+        cleaned_events[e[2]] = e[3]
+
+
+    dict = {}
+    dict['id'] = graph_id
+    dict['name'] = name
+    dict['data'] = cleaned_events
+
+    return dict
 
 def save(graph):
     pass

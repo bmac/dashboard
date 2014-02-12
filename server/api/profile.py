@@ -16,7 +16,7 @@ def read(user):
     dict = {}
     dict['id'] = user[0]
     dict['name'] = user[1]
-    dict['graphs'] = [user[2]]
+    dict['graphs'] = [user[2], user[3]]
 
     return dict
 
