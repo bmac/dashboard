@@ -151,20 +151,25 @@ require([], function() {
 
   var populate_graphs = function(user, graph, names){
     for (n in names){
-      d3.json(user + '/github', function(error, json) {
+      d3.json(user + '/'+ names[n], function(error, json) {
         var max;
-        _.each(json, function(value, key) {
+        _.each(json.data, function(value, key) {
           if (max == null || value > max) { max = value; }
         });
+        console.log(max);
         var color = function(d){
           if (d === 0){
             return 0;
+          } else if (d === max){
+            return 4;
           } else {
             return Math.floor((d/max) * 4) + 1;
           }
         };
         var data = json.data;
-        d3.select('#exercise').selectAll('.day').filter(function(d) { return d in data; })
+        console.log(json.name);
+        console.log(data);
+        d3.select('#' + json.name).selectAll('.day').filter(function(d) { return d in data; })
         .attr("class", function(d) { return "day q" + color(json.data[d]); })
         .select("title")
         .text(function(d) { return d + ": " + data[d] + " contributions "; });
