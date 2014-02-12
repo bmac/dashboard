@@ -23,9 +23,6 @@ def read(user, name):
     graph_id = graph[3]
 
     try:
-        print "!!!"
-        print graph_id
-        print graph
         events = execute("select * from events where graph_id=" + str(graph_id) + ";")
     except:
         pass

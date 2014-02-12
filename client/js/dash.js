@@ -1,4 +1,10 @@
 require([], function() {
+        var user = $("#user").attr("user");
+
+        $.getJSON(user + '/data', function(data){
+                console.log(data);
+            });
+
         var color_map = {
             0 : "#eee",
             1 : "#eee",
@@ -7,7 +13,6 @@ require([], function() {
             4 : "#4044a3",
             5 : "#231e68"
         };
-
 
         var width = 960,
             height = 136,
@@ -47,15 +52,15 @@ require([], function() {
         var num_years = (e_year - s_year) + 1;
         var padding = (parseInt(day(start))) * num_years;
 
-        console.log(start);
+        //console.log(start);
 
         var multi_week = function (d){
             var date = new Date(d);
             var diffDays = Math.round(Math.abs((start.getTime() - date.getTime())/DAY));
             diffDays += padding;
             var week = Math.floor((diffDays)/7);
-            console.log(date);
-            console.log(diffDays);
+            //console.log(date);
+            //console.log(diffDays);
             return week;
         };
 
@@ -87,7 +92,7 @@ require([], function() {
                     .text(function(d) { return d + ": " + percent(data[d]); });
             });
             /**/
-        d3.json("bmac.json", function(error, json) {
+        d3.json(user + 'exercise', function(error, json) {
                 var max;
                 _.each(json, function(value, key) {
                         if (max == null || value > max) { max = value; }
@@ -100,7 +105,7 @@ require([], function() {
                     }
                 };
 
-                rect.filter(function(d) {return d in json; })
+                rect.filter(function(d) {console.log(json);return d in json; })
                     .attr("class", function(d) { return "day q" + color(json[d]); })
                     .select("title")
                     .text(function(d) { return d + ": " + json[d] + " contributions "; });

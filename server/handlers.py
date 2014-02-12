@@ -1,10 +1,12 @@
 import tornado
 import tornado.web
+from tornado import template
 import json
 
 from api.user import validate_api_key
-from api import graph
+from api import graph, profile
 
+loader = template.Loader("./templates/")
 
 class DBHandler(tornado.web.RequestHandler):
     def prepare(self):
@@ -18,10 +20,14 @@ class DBHandler(tornado.web.RequestHandler):
             # Throw error.
             pass
 
-
-class ProfileHandler(DBHandler):
+class DataHandler(DBHandler):
     def get(self, user):
-        self.write(json.dumps("USER ACTION"))
+        self.write(json.dumps(profile.read(user)))
+
+
+class DashHandler(DBHandler):
+    def get(self, user):
+        self.render('templates/profile.html', user=user)
 
 
 class UserHandler(DBHandler):
