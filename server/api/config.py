@@ -31,6 +31,7 @@ def config_logger(log):
     return logger
 
 DB_PATH = '/Users/ingrid/Dev/dashboard/server/api/db'
+DB_PATH = "/Users/icheung/Dev/foo/server/api/db"
 
 envkeys = []
 this_module = sys.modules[__name__]

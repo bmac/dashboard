@@ -80,7 +80,7 @@ def init_data():
         execute("insert into events('graph_id', 'date', 'data') values (2, '2013-06-01', 5);")
         execute("insert into events('graph_id', 'date', 'data') values (2, '2013-06-02', 5);")
         execute("update users set alpha='exercise' where id=2;")
-        execute("update users set bravo='gh' where id=2;")
+        execute("update users set bravo='github' where id=2;")
         execute("insert into events('graph_id', 'date', 'data') values (3,'2013-01-13', 1);")
         execute("insert into events('graph_id', 'date', 'data') values (3,'2013-01-14', 2);")
         execute("insert into events('graph_id', 'date', 'data') values (3,'2013-01-15', 1);")
