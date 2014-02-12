@@ -50,17 +50,13 @@ require([], function() {
   var e_year = end.getFullYear();
   var DAY = 24*60*60*1000;
   var num_years = (e_year - s_year) + 1;
-  var padding = (parseInt(day(start))) * num_years;
-
-  //console.log(start);
+  var padding = start.getDay() + 1;
 
   var multi_week = function (d){
     var date = new Date(d);
     var diffDays = Math.round(Math.abs((start.getTime() - date.getTime())/DAY));
     diffDays += padding;
     var week = Math.floor((diffDays)/7);
-    //console.log(date);
-    //console.log(diffDays);
     return week;
   };
 
@@ -91,7 +87,7 @@ require([], function() {
       .select("title")
       .text(function(d) { return d + ": " + percent(data[d]); });
       });
-      /**/
+
   d3.json(user + 'exercise', function(error, json) {
     var max;
     _.each(json, function(value, key) {
@@ -113,7 +109,7 @@ require([], function() {
   });
 
   d3.select(self.frameElement).style("height", "2910px");
-
+      /**/
   // Replace all SVG images with inline SVG
   $('img.svg').each(function(){
     var $img = $(this);
