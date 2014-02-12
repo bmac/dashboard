@@ -10,7 +10,6 @@ LOG_LEVEL = logging.DEBUG
 
 logger = logging.getLogger()
 
-
 plain_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 # Add json formatter for log file.
 
@@ -30,11 +29,9 @@ def config_logger(log):
 
     return logger
 
-DB_PATH = '/Users/ingrid/Dev/dashboard/server/api/db'
-DB_PATH = "/Users/icheung/Dev/foo/server/api/db"
-
+DB_NAME = 'db'
+DB_PATH = os.path.dirname(os.path.realpath(__file__)) + '/' + DB_NAME
 envkeys = []
 this_module = sys.modules[__name__]
 for key in envkeys:
     setattr(this_module, key, os.environ.get(key, None))
-
