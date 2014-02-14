@@ -43,8 +43,26 @@ svg path {
 .RdYlGn .q9-11{fill:rgb(26,152,80)}
 .RdYlGn .q10-11{fill:rgb(0,104,55)}
 
-.RdYlGn .q0{fill:#eee}
-.RdYlGn .q1{fill:#d6e685}
-.RdYlGn .q2{fill:#8cc665}
-.RdYlGn .q3{fill:#44a340}
-.RdYlGn .q4{fill:#1e6823}
+.RdYlGn .green0{fill:#fff}
+.RdYlGn .green1{fill:#d6e685}
+.RdYlGn .green2{fill:#8cc665}
+.RdYlGn .green3{fill:#44a340}
+.RdYlGn .green4{fill:#1e6823}
+
+.RdYlGn .red0{fill:#fff}
+.RdYlGn .red1{fill:#feaab3}
+.RdYlGn .red2{fill:#fd6778}
+.RdYlGn .red3{fill:#fc243c}
+.RdYlGn .red4{fill:#d9031b}
+
+.RdYlGn .yellow0{fill:#fff}
+.RdYlGn .yellow1{fill:#f8fcb1}
+.RdYlGn .yellow2{fill:#f1f970}
+.RdYlGn .yellow3{fill:#ebf62f}
+.RdYlGn .yellow4{fill:#ccd809}
+
+.RdYlGn .blue0{fill:#fff}
+.RdYlGn .blue1{fill:#8ec5f5}
+.RdYlGn .blue2{fill:#50a4ef}
+.RdYlGn .blue3{fill:#1584e6}
+.RdYlGn .blue4{fill:#0f60a8}

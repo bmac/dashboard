@@ -55,6 +55,7 @@ class GitHubHandler(DBHandler):
         d = {
             "id" : "gh",
             "name" : "github",
-            "data" : data
+            "data" : data,
+            "color" : "green"
         }
         self.write(json.dumps(d))

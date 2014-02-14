@@ -37,6 +37,7 @@ def read(user, name):
     dict['id'] = graph_id
     dict['name'] = name
     dict['data'] = cleaned_events
+    dict['color'] = graph[4]
 
     return dict
 

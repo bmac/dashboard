@@ -170,7 +170,7 @@ require([], function() {
         console.log(json.name);
         console.log(data);
         d3.select('#' + json.name).selectAll('.day').filter(function(d) { return d in data; })
-        .attr("class", function(d) { return "day q" + color(json.data[d]); })
+          .attr("class", function(d) { return "day " + json.color + color(json.data[d]); })
         .select("title")
         .text(function(d) { return d + ": " + data[d] + " contributions "; });
       // Accomodate singular.
