@@ -66,3 +66,19 @@ svg path {
 .RdYlGn .blue2{fill:#50a4ef}
 .RdYlGn .blue3{fill:#1584e6}
 .RdYlGn .blue4{fill:#0f60a8}
+
+/**/
+#graphs{
+    float : left;
+    width : 90%;
+}
+
+#controls{
+    float : right;
+    width : 10%;
+}
+
+#container{
+    clear : both;
+}
+/**/

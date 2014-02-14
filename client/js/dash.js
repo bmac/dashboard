@@ -19,7 +19,7 @@ require([], function() {
     percent = d3.format(".1%"),
     format = d3.time.format("%Y-%m-%d");
 
-    var svg = d3.select("body").selectAll("svg")
+    var svg = d3.select("#graphs").selectAll("svg")
       .data(['', '', ''])
       .enter().append("svg")
       .attr("width", width)

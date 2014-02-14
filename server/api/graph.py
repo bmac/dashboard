@@ -7,6 +7,15 @@ def create(name, user_id):
     return user
 
 
+# Update metadata.
+def update(id, data):
+    pass
+
+# Record a day of activity.
+def record(id, date, value):
+    execute("insert into events('graph_id', 'date', 'data') values (" + str(id) + ",'" + date + "', " + str(value) + ");")
+
+
 def read(user, name):
     try:
         user_id = execute("select id from users where name='" + user + "';")[0][0]
